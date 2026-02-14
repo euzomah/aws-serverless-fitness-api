@@ -39,15 +39,20 @@ Client → API Gateway → Lambda → DynamoDB → Response
 
 ### Health Check
 
-GET:
+GET /health
 
-Response:
+### Get Workouts
+
+GET: /workouts?userId=elvis
+
+
+### Create Workout
+
+POST /workouts
+
+
+Body:
 ```json
-{
-  "ok": true,
-  "service": "secure-fitness-api"
-}
-/workouts
 {
   "userId": "elvis",
   "exercise": "Deadlift",
@@ -55,7 +60,16 @@ Response:
   "weight": 315,
   "notes": "Felt strong"
 }
-Author
+```
 
-Elvis Uzomah
+---
+
+## Author
+
+**Elvis Uzomah**  
 Cloud Engineering Portfolio Project
+
+### Base API URL
+`https://sliwhg53yf.execute-api.us-east-1.amazonaws.com/prod`
+
+
