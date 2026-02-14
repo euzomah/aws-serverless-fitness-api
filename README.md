@@ -1,28 +1,21 @@
 # AWS Serverless Fitness API
 
-A fully serverless REST API built on AWS to track workouts, weights, reps, and notes.
+A fully serverless REST API built on AWS to track workouts, including exercises, reps, weight, and notes.
 
-Designed as a scalable cloud-native fitness backend using AWS Lambda, API Gateway, and DynamoDB.
-
-This project demonstrates real-world cloud engineering skills including serverless architecture, API design, and cloud database integration.
+This project demonstrates real-world cloud engineering skills using AWS Lambda, API Gateway, DynamoDB, and CloudWatch to build a scalable fitness tracking backend without managing servers.
 
 ---
 
-## Features
+## Project Overview
+
+This API allows users to:
 
 - Create workout entries
 - Retrieve workout history
 - Delete workouts
-- Health check endpoint for monitoring
-- Fully serverless architecture (no servers to manage)
-- JSON-based API responses
-- Tested with Postman
+- Perform health checks for monitoring
 
----
-
-## Architecture
-
-Client → API Gateway → Lambda → DynamoDB → Response
+Designed as a cloud-native backend for fitness applications.
 
 ---
 
@@ -35,23 +28,65 @@ Client → API Gateway → Lambda → DynamoDB → Response
 
 ---
 
+## Architecture
+
+Client Request → API Gateway → Lambda Function → DynamoDB → Response
+
+Fully serverless architecture:
+
+- No server management
+- Auto-scaling
+- Pay-per-use
+- Highly available
+
+---
+
+## Base API URL
+
+```
+https://sliwhg53yf.execute-api.us-east-1.amazonaws.com/prod
+```
+
+---
+
 ## Example Endpoints
 
 ### Health Check
 
-GET /health
+**GET**
+```
+/health
+```
+
+**Response**
+```json
+{
+  "ok": true,
+  "service": "secure-fitness-api"
+}
+```
+
+---
 
 ### Get Workouts
 
-GET: /workouts?userId=elvis
+**GET**
+```
+/workouts?userId=elvis
+```
 
+Returns workout history for a user.
+
+---
 
 ### Create Workout
 
-POST /workouts
+**POST**
+```
+/workouts
+```
 
-
-Body:
+**Body**
 ```json
 {
   "userId": "elvis",
@@ -64,12 +99,40 @@ Body:
 
 ---
 
+### Delete Workout
+
+**DELETE**
+```
+/workouts/{workoutId}?userId=elvis
+```
+
+Deletes a specific workout entry.
+
+---
+
+## Testing
+
+API tested using:
+
+- Postman
+- Direct API Gateway endpoint calls
+
+---
+
+## Future Improvements
+
+- Authentication (Cognito / JWT)
+- Frontend fitness dashboard
+- Mobile app integration
+- Analytics tracking
+- CI/CD deployment pipeline
+
+---
+
 ## Author
 
 **Elvis Uzomah**  
-Cloud Engineering Portfolio Project
+Cloud Engineering Portfolio Project  
 
-### Base API URL
-`https://sliwhg53yf.execute-api.us-east-1.amazonaws.com/prod`
-
+Focused on AWS Cloud Engineering, DevOps, and Security Architecture.
 
